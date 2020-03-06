@@ -1,31 +1,16 @@
-import {isValid, addDays} from './date';
+import addDays from 'date-fns/addDays';
+import isValid from 'date-fns/isValid';
+import {isInteger} from './types';
 import {Config} from './config';
 import {hasDuplicates} from './util';
-import {taskType, headerColumnType} from './index';
+import {taskType} from './index';
 import {linkType} from './internalTypes';
-
-/*
-*	Get the default tree configuration
-*/
-export function getDefaultTreeColumns(): Array<headerColumnType> {
-	return [
-		{
-			id: 'text',
-			title: 'Tasks',
-		},
-		{
-			id: 'days',
-			title: 'Days',
-			width: 60,
-		},
-	];
-}
 
 /*
 *	Convert the data
 */
 export function setData(tasks: Array<taskType>, config: Config): void {
-	if (!Array.isArray(tasks)) {
+	if (!Array.isArray(tasks) || !tasks.every(e => typeof e === 'object')) {
 		throw new Error('The method "setData" expects the first parameter to be an array of tasks');
 	}
 
@@ -34,24 +19,32 @@ export function setData(tasks: Array<taskType>, config: Config): void {
 
 	const taskIds: Array<number> = [];
 	config.tasks = tasks.map(task => {
-		// make sure that the id is unique
+		// id
+		if (!isInteger(task.id) || task.id <= 0) {
+			throw new TypeError('The property "id" must be a positive integer');
+		}
 		if (taskIds.indexOf(task.id) !== -1) {
-			throw new TypeError(`The task id ${task.id} is used more then once`);
+			throw new TypeError(`The property "id" in task ${task.id} is used more then once`);
 		}
 		taskIds.push(task.id);
 
-		// round the duration in days
-		const days = Math.round(task.days);
-		if (days <= 0) {
-			throw new TypeError(`Duration in task ${task.id} is <= 0`);
+		// text
+		if (typeof task.text !== 'string') {
+			throw new TypeError(`The property "text" in task ${task.id} must be a string`);
 		}
 
+		// startDate
 		if (!isValid(task.startDate)) {
-			throw new TypeError(`Start date in task ${task.id} is invalid`);
+			throw new TypeError(`The property "startDate" in task ${task.id} must be a Date`);
+		}
+
+		// days
+		if (!isInteger(task.days) || task.days <= 0) {
+			throw new TypeError('The property "days" must be a positive integer');
 		}
 
 		// calculate when the task ends
-		const endDate = addDays(task.startDate, days);
+		const endDate = addDays(task.startDate, task.days);
 
 		// capture the date range
 		if (scaleStart === null || task.startDate < scaleStart) {
@@ -66,7 +59,7 @@ export function setData(tasks: Array<taskType>, config: Config): void {
 			text: task.text,
 			startDate: task.startDate,
 			endDate,
-			days,
+			days: task.days,
 		};
 	});
 

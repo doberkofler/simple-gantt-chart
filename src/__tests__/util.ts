@@ -2,7 +2,7 @@ import {hasDuplicates} from '../util';
 
 describe('util', () => {
 	it('hasDuplicates should detect duplicates', () => {
-		expect.assertions(7);
+		expect.hasAssertions();
 
 		expect(hasDuplicates([])).toBe(false);
 		expect(hasDuplicates([1])).toBe(false);

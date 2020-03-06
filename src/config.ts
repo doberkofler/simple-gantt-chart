@@ -1,6 +1,7 @@
 import {v4 as uuid} from 'uuid';
-import {startOfMonth, endOfMonth, getDateWitoutTime} from './date';
-import {getDefaultTreeColumns} from './data';
+import startOfMonth from 'date-fns/startOfMonth';
+import endOfMonth from 'date-fns/endOfMonth';
+import {getDateWitoutTime} from './date';
 import {getElementByIdAndClass} from './dom/dom';
 import {ScaleType} from './scale';
 import {headerColumnType, optionsType} from './index';
@@ -62,6 +63,23 @@ export class Config {
 
 		return task;
 	}
+}
+
+/*
+*	Get the default tree configuration
+*/
+export function getDefaultTreeColumns(): Array<headerColumnType> {
+	return [
+		{
+			id: 'text',
+			title: 'Tasks',
+		},
+		{
+			id: 'days',
+			title: 'Days',
+			width: 60,
+		},
+	];
 }
 
 function getColumns(columns: Array<headerColumnType>): Array<headerColumnType> {

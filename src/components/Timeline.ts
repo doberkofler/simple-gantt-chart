@@ -1,15 +1,15 @@
-import {differenceInCalendarDays} from '../date';
+import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 import {Config} from '../config';
 import {classNames} from '../classNames';
 import {getContainer} from '../dom/tags';
-import {getTimelineScale, scaleHeaderType, scaleCellType} from '../scale';
+import {getTimelineScale, scaleCellType} from '../scale';
 import {getLinkMarkup} from './Link';
 import {internalTaskType, linkType, computedTaskType} from '../internalTypes';
 
 export class Timeline {
 	private readonly _config: Config;
 	private readonly _width: number;
-	private readonly _scale: scaleHeaderType;
+	private readonly _scale: Array<scaleCellType>;
 	private readonly _taskModel: Array<computedTaskType>;
 
 	public constructor(config: Config, width: number) {
@@ -58,7 +58,7 @@ export class Timeline {
 	}
 }
 
-function getHeaderRow(scaleHeader: scaleHeaderType, lineHeight: number, cellWidth: number): string {
+function getHeaderRow(scaleHeader: Array<scaleCellType>, lineHeight: number, cellWidth: number): string {
 	let content = '';
 	for (let i = 0; i < scaleHeader.length; i++) {
 		content += getHeaderCell(scaleHeader[i], cellWidth, i === 0);
@@ -86,7 +86,7 @@ function getHeaderCell(cell: scaleCellType, cellWidth: number, firstCell: boolea
 	}, cell.dayAsString);
 }
 
-function getTableGrids(height: number, width: number, lineHeight: number, cellWidth: number, scale: scaleHeaderType, tasks: Array<internalTaskType>): string {
+function getTableGrids(height: number, width: number, lineHeight: number, cellWidth: number, scale: Array<scaleCellType>, tasks: Array<internalTaskType>): string {
 	let content = '';
 	for (let i = 0; i < tasks.length; i++) {
 		content += getTableGridRow(scale, lineHeight, cellWidth);
@@ -102,7 +102,7 @@ function getTableGrids(height: number, width: number, lineHeight: number, cellWi
 	}, content);
 }
 
-function getTableGridRow(scaleHeader: scaleHeaderType, lineHeight: number, cellWidth: number): string {
+function getTableGridRow(scaleHeader: Array<scaleCellType>, lineHeight: number, cellWidth: number): string {
 	let content = '';
 	for (let i = 0; i < scaleHeader.length; i++) {
 		content += getTableGridCell(cellWidth, i === 0);
@@ -193,7 +193,7 @@ function getComputedTask(tasks: Array<computedTaskType>, id: number): computedTa
 	return task;
 }
 
-function getTaskModel(scale: scaleHeaderType, tasks: Array<internalTaskType>, lineHeight: number, cellWidth: number): Array<computedTaskType> {
+function getTaskModel(scale: Array<scaleCellType>, tasks: Array<internalTaskType>, lineHeight: number, cellWidth: number): Array<computedTaskType> {
 	if (scale.length < 1) {
 		throw new Error('The scale is empty');
 	}

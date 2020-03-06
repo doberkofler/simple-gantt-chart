@@ -3,7 +3,7 @@ import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
 
 describe('date', () => {
 	it('getDateWitoutTime should set the time components to 0', () => {
-		expect.assertions(5);
+		expect.hasAssertions();
 
 		const date = new Date();
 		const dateWithoutTime = getDateWitoutTime(date);
