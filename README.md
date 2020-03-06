@@ -1,5 +1,5 @@
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
+[![NPM version](https://img.shields.io/npm/v/simple-gantt-chart.svg)](https://www.npmjs.com/package/simple-gantt-chart)
+[![Downloads](https://img.shields.io/npm/dm/simple-gantt-chart.svg)](https://www.npmjs.com/package/simple-gantt-chart)
 
 
 # Simple Gantt Chart
@@ -73,10 +73,3 @@ See the [changelog](https://github.com/doberkofler/simple-gantt-chart/blob/maste
 # License
 
 [MIT](LICENSE)
-
-
-[npm-image]: https://img.shields.io/npm/v/simple-gantt-chart.svg
-[npm-url]: https://npmjs.org/package/simple-gantt-chart
-
-[downloads-image]: https://img.shields.io/npm/dm/simple-gantt-chart.svg
-[downloads-url]: https://npmjs.org/package/simple-gantt-chart

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Dieter Oberkofler <dieter.oberkofler@gmail.com>",
   "license": "MIT",
-  "description": "A simple GanttChart component for HTML",
+  "description": "Very simple vanilla JavaScript library for displaying projects as Gantt Charts.",
   "keywords": [
     "simple-gantt-chart",
     "gantt chart",
