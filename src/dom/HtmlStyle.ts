@@ -29,7 +29,7 @@ export class HtmlStyle {
 	}
 
 	/**
-	 *	Merge additional style components by eventually overwriting th existing ones.
+	 *	Merge additional style components by eventually overwriting the existing ones.
 	 *
 	 *	@param {stylesType} styles - A object where each property represents a style component.
 	 *	@example style.merge({'color': black, 'background-color': 'white'});
@@ -57,9 +57,9 @@ export class HtmlStyle {
 	 *	Set style component.
 	 *
 	 *	@param {string} name - The component name.
-	 *	@param {string} value - The component value.
+	 *	@param {string|number} value - The component value.
 	 */
-	public setComponent(name: string, value: string): void {
+	public setComponent(name: string, value: string|number): void {
 		this._styles[name.toLowerCase()] = value;
 	}
 
@@ -85,6 +85,6 @@ export class HtmlStyle {
 			styles.push(`${key}:${this._styles[key]};`);
 		}
 
-		return styles.join(' ');
+		return styles.join('');
 	}
 }
