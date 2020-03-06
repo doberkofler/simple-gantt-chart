@@ -1,0 +1,127 @@
+/****************************************
+ * layout
+ ****************************************/
+
+.gc_root_container_view {
+	background-color: white;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+.gc_timeline_header_gap_view,
+.gc_tree_scrollbar_cell,
+.gc_timeline_scrollbar_gap {
+	background-color: #dcdcdc;
+}
+
+/****************************************
+ * tree view
+ ****************************************/
+
+.gc_tree_header_cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #dcdcdc;
+}
+
+.gc_tree_table_cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/****************************************
+ * timeline view
+ ****************************************/
+
+.gc_timeline_view {
+	background-color: white;
+}
+
+.gc_timeline_header_cell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #dcdcdc;
+}
+
+.gc_timeline_table_task {
+	border-radius: 2px;
+	color: #fff;
+	background-color: #59a5d8;
+	border: 1px solid #59a5d8;
+	white-space: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+/****************************************
+ * links
+ ****************************************/
+
+.gc_link_container_view div {
+	background-color: #386fa4;
+}
+
+/****************************************
+ * arrows
+ ****************************************/
+
+.gc_link_arrow_right {
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-left: 6px solid #386fa4;
+}
+
+.gc_link_arrow_left {
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	border-right: 6px solid #386fa4;
+}
+
+.gc_link_arrow_up {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #386fa4;
+}
+
+.gc_link_arrow_down {
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #386fa4;
+}
+
+/****************************************
+ * borders
+ ****************************************/
+
+.gc_border_top {
+	border-top: 1px solid #ebebeb;
+}
+
+.gc_border_bottom {
+	border-bottom: 1px solid #ebebeb;
+}
+
+.gc_border_left {
+	border-left: 1px solid #ebebeb;
+}
+
+.gc_border_right {
+	border-right: 1px solid #ebebeb;
+}
+
+.gc_border_right_wide {
+	border-right: 2px solid #ebebeb;
+}

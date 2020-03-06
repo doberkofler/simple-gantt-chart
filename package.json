@@ -1,0 +1,66 @@
+{
+  "name": "simple-gantt-chart",
+  "version": "0.0.1",
+  "author": "Dieter Oberkofler <dieter.oberkofler@gmail.com>",
+  "license": "MIT",
+  "description": "A simple GanttChart component for HTML",
+  "keywords": [
+    "simple-gantt-chart",
+    "gantt chart",
+    "gantt-chart",
+    "gantt",
+    "chart",
+    "html",
+    "javascript",
+    "typescript"
+  ],
+  "homepage": "https://github.com/doberkofler/simple-gantt-chart",
+  "engines": {
+    "node": ">=10"
+  },
+  "maintainers": [
+    {
+      "name": "Dieter Oberkofler",
+      "email": "dieter.oberkofler@gmail.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/doberkofler/simple-gantt-chart/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/doberkofler/simple-gantt-chart.git"
+  },
+  "scripts": {
+    "lint": "eslint --report-unused-disable-directives \"./src/**/*.ts\" && tsc --noEmit --project ./tsconfig.json && stylelint \"src/**/*.css\"",
+    "build": "rimraf lib && webpack --progress --mode=production && tsc --project ./tsconfig.declaration.json",
+    "watch": "webpack --watch --progress --mode=development"
+  },
+  "dependencies": {
+    "date-fns": "2.10.0",
+    "scrollbar-size": "2.1.0",
+    "uuid": "7.0.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "7.0.0",
+    "@typescript-eslint/eslint-plugin": "2.22.0",
+    "@typescript-eslint/parser": "2.22.0",
+    "copy-webpack-plugin": "5.1.1",
+    "eslint": "6.8.0",
+    "eslint-import-resolver-ts": "0.4.2",
+    "eslint-import-resolver-webpack": "0.12.1",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsdoc": "22.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "ifdef-loader": "2.1.4",
+    "rimraf": "3.0.2",
+    "stylelint": "13.2.0",
+    "stylelint-config-standard": "20.0.0",
+    "terser-webpack-plugin": "2.3.5",
+    "ts-loader": "6.2.1",
+    "tslib": "1.11.1",
+    "typescript": "3.8.3",
+    "webpack": "4.42.0",
+    "webpack-cli": "3.3.11"
+  }
+}

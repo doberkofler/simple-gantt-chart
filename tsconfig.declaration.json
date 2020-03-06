@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig_base",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "./lib"
+  },
+  "files": [
+    "./src/index.ts"
+  ]
+}

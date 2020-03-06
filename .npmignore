@@ -1,0 +1,12 @@
+.eslintcache
+.vscode/
+.nyc_output/
+coverage/
+examples/**/dist/
+examples/**/node_modules/
+node_modules/
+package-lock.json
+temp/
+test/
+.travis.yml
+appveyor.yml

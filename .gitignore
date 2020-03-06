@@ -1,0 +1,11 @@
+.eslintcache
+.vscode/
+.nyc_output/
+coverage/
+examples/**/dist/
+examples/**/node_modules/
+lib/
+node_modules/
+package-lock.json
+temp/
+test/
