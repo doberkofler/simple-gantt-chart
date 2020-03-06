@@ -20,14 +20,14 @@
     "moduleResolution": "node",
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": [
-      "../node_modules/@types"
-    ],
     "baseUrl": "./",
     "outDir": "./temp",
     "lib": [
       "esnext",
       "dom"
+    ],
+    "types": [
+      "jest"
     ]
   },
   "compileOnSave": false,
