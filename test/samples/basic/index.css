@@ -1,0 +1,18 @@
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+
+body {
+	margin: 0;
+	background-size: 50px 50px;
+	background-image: linear-gradient(to right, grey 1px, transparent 1px), linear-gradient(to bottom, grey 1px, transparent 1px);
+}
+
+#gantt_here {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	width: 800px;
+	height: 500px;
+}
