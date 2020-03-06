@@ -1,0 +1,14 @@
+{
+  "name": "simple-gantt-chart-example-helloworld",
+  "version": "1.0.0",
+  "description": "Simple Gantt Chart Example using script tags",
+  "main": "index.html",
+  "scripts": {
+    "test": "index.html"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "simple-gantt-chart": "file:../../simple-gantt-chart-0.0.1.tgz"
+  }
+}

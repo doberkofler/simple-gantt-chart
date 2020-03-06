@@ -18,31 +18,35 @@ You can use this library as a script tag or you can import it as a npm module.
 
 ## CommonJS
 
+```js
 const {GanttChart} = require('simple-gantt-chart');
+```
 
 ## ES2015 modules
 
+```js
 import {GanttChart} from 'simple-gantt-chart'
+```
 
 
 # Example
 
-```
+```html
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>Gantt Chart Example</title>
-	<link rel="stylesheet" href="../../lib/index.css">
+	<link rel="stylesheet" href="./node_modules/simple-gantt-chart/dist/index.css">
 	<style>
 		html {
 			font-family: Arial, Helvetica, sans-serif;
 			font-size: small;
-			}
+		}
 		</style>
 </head>
 <body>
 	<div id="gantt_here" style="position: absolute; top: 100px; left: 100px; width: 1000px; height: 500px;"></div>
-	<script src="../../lib/index.js"></script>
+	<script src="./node_modules/simple-gantt-chart/dist/index.js"></script>
 	<script>
 		const gantt = new ganttchart.GanttChart();
 
@@ -63,7 +67,7 @@ import {GanttChart} from 'simple-gantt-chart'
 
 # Release History
 
-See the [changelog](https://github.com/doberkofler/simple-gantt-chart/CHANGELOG.md).
+See the [changelog](https://github.com/doberkofler/simple-gantt-chart/blob/master/CHANGELOG.md).
 
 
 # License

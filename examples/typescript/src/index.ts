@@ -1,4 +1,4 @@
-import {GanttChart} from '../../../lib';
+import {GanttChart} from 'simple-gantt-chart';
 
 const gantt = new GanttChart();
 gantt.setData([

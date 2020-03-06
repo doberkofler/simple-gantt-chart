@@ -1,10 +1,11 @@
+*.tgz
 .eslintcache
 .vscode/
 .nyc_output/
 coverage/
 examples/**/dist/
 examples/**/node_modules/
-lib/
+dist/
 node_modules/
 package-lock.json
 temp/

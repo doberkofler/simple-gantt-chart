@@ -10,7 +10,7 @@ module.exports = function () {
 			index: './src/index.ts',
 		},
 		output: {
-			path: path.resolve('lib'),
+			path: path.resolve('dist'),
 			filename: 'index.js',
 			library: 'ganttchart',
 			libraryTarget: 'umd',
@@ -42,6 +42,7 @@ module.exports = function () {
 		plugins: [
 			new CopyWebpackPlugin([
 				{from: './src/index.css'},
+				{from: './types/index.d.ts'},
 			]),
 		],
 		devtool: 'source-map',
