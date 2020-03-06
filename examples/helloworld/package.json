@@ -9,6 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "simple-gantt-chart": "file:../../simple-gantt-chart-0.0.1.tgz"
+    "simple-gantt-chart": "^0.0.1"
   }
 }

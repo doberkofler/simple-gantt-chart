@@ -4,12 +4,12 @@
   "description": "Simple Gantt Chart Example",
   "main": "index.html",
   "scripts": {
-    "test": "webpack --mode=production"
+    "build": "webpack --mode=production"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "simple-gantt-chart": "file:../../simple-gantt-chart-0.0.1.tgz",
+    "simple-gantt-chart": "^0.0.1",
     "terser-webpack-plugin": "^2.3.5",
     "ts-loader": "^6.2.1",
     "tslib": "^1.11.1",
