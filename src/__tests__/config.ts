@@ -2,7 +2,7 @@ import startOfMonth from 'date-fns/startOfMonth';
 import endOfMonth from 'date-fns/endOfMonth';
 import {getDateWitoutTime} from '../date';
 import {Config} from '../config';
-import {render} from '../layout';
+import {render} from '../render';
 import {ScaleType} from '../scale';
 import {optionsType} from '../index';
 
