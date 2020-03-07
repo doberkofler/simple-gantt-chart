@@ -1,5 +1,4 @@
 import {GanttChart} from '../index';
-import {getDefaultTreeColumns} from '../config';
 
 describe('the class GanttChart', () => {
 	it('should render a gantt chart', () => {
@@ -10,10 +9,7 @@ describe('the class GanttChart', () => {
 
 		const gantt = new GanttChart();
 
-		gantt.setConfig({
-			treeWidthPercentage: 30,
-			columns: getDefaultTreeColumns(),
-		});
+		gantt.setConfig({treeWidthPercentage: 30});
 
 		gantt.setData([
 			{id: 1, text: 'Planning', startDate: new Date('2020-01-01'), days: 1},
@@ -23,9 +19,16 @@ describe('the class GanttChart', () => {
 			{id: 5, text: 'Testing', startDate: new Date('2020-01-07'), days: 2, dependencies: [3]},
 			{id: 6, text: 'Deployment', startDate: new Date('2020-01-10'), days: 2, dependencies: [4, 5]},
 		]);
-		const element = document.getElementById('gantt_here') as HTMLElement;
-		gantt.render(element);
+		const container = document.getElementById('gantt_here') as HTMLElement;
+		gantt.render(container);
 
-		expect(element.innerHTML).toMatch(/^<div id=".*" class="gc_root_container_view".*>.*<\/div>$/);
+		expect(container.innerHTML).toMatch(/^<div id=".*" class="gc_root_container_view".*>.*<\/div>$/);
+
+		// let's test scrolling
+		/*
+		const scrollbarElements = document.getElementsByClassName('gc_timeline_scrollbar_cell');
+		expect(scrollbarElements).toHaveLength(1);
+		scrollbarElements[0].scrollTo(10, 10);
+		*/
 	});
 });

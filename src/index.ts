@@ -1,6 +1,6 @@
 import {Config} from './config';
 import {setData} from './data';
-import {render} from './Layout';
+import {render} from './layout';
 
 export type taskType = {
 	id: number,

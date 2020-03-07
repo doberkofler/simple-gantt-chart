@@ -54,6 +54,7 @@ export class Config {
 		return getElementByIdAndClass(this.id, className);
 	}
 
+	/*
 	public getTask(id: number): internalTaskType {
 		const task = this.tasks.find(e => e.id === id);
 
@@ -63,12 +64,13 @@ export class Config {
 
 		return task;
 	}
+	*/
 }
 
 /*
 *	Get the default tree configuration
 */
-export function getDefaultTreeColumns(): Array<headerColumnType> {
+function getDefaultTreeColumns(): Array<headerColumnType> {
 	return [
 		{
 			id: 'text',

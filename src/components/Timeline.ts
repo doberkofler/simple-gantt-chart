@@ -186,6 +186,7 @@ function getTableLinks(height: number, width: number, lineHeight: number, tasks:
 function getComputedTask(tasks: Array<computedTaskType>, id: number): computedTaskType {
 	const task = tasks.find(e => e.task.id === id);
 
+	/* istanbul ignore if */
 	if (typeof task === 'undefined') {
 		throw new Error(`Cannot find task with id "${id}"`);
 	}
@@ -194,6 +195,7 @@ function getComputedTask(tasks: Array<computedTaskType>, id: number): computedTa
 }
 
 function getTaskModel(scale: Array<scaleCellType>, tasks: Array<internalTaskType>, lineHeight: number, cellWidth: number): Array<computedTaskType> {
+	/* istanbul ignore if */
 	if (scale.length < 1) {
 		throw new Error('The scale is empty');
 	}
