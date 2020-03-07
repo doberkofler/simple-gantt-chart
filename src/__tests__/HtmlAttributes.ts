@@ -1,4 +1,4 @@
-import {HtmlAttributes} from '../dom/HtmlAttributes';
+import {HtmlAttributes, attributesType} from '../dom/HtmlAttributes';
 
 describe('the class HtmlAttributes', () => {
 	it('should have a default constructor', () => {
@@ -17,6 +17,9 @@ describe('the class HtmlAttributes', () => {
 		expect(htmlAttributes.hasAttribute('class')).toStrictEqual(true);
 		expect(htmlAttributes.getAttribute('class')).toStrictEqual('big');
 		expect(htmlAttributes.toString()).toStrictEqual('class="big"');
+
+		expect(() => new HtmlAttributes({'class': true} as unknown as attributesType)).toThrow('Invalid type of value in attribute "class"');
+		expect(() => new HtmlAttributes({'class': 'big', 'Class': 'big'} as unknown as attributesType)).toThrow('Duplicate attribute "Class"');
 	});
 
 	it('should have a copy constructor', () => {
@@ -54,6 +57,8 @@ describe('the class HtmlAttributes', () => {
 
 		const htmlAttributes = new HtmlAttributes({'class': 'big'});
 		htmlAttributes.pushValue('class', 'small');
+		htmlAttributes.pushValue('class', 'small');
+		expect(htmlAttributes.hasValue('id', '1')).toStrictEqual(false);
 		expect(htmlAttributes.hasValue('class', 'medium')).toStrictEqual(false);
 		expect(htmlAttributes.hasValue('class', 'big')).toStrictEqual(true);
 		expect(htmlAttributes.hasValue('class', 'small')).toStrictEqual(true);

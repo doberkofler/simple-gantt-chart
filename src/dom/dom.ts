@@ -25,7 +25,7 @@ export function getElementByClassName(classNames: string): Element {
 export function getElementByIdAndClass(id: string, className: string): Element {
 	const rootElement = document.getElementById(id);
 	if (rootElement === null) {
-		throw new Error(`The root element with id ${id} cannot be found`);
+		throw new Error(`The root element with id "${id}" cannot be found`);
 	}
 
 	const element = rootElement.querySelector(`.${className}`);
@@ -36,6 +36,7 @@ export function getElementByIdAndClass(id: string, className: string): Element {
 	return element;
 }
 
+/*
 export function querySelector(selector: string): Element {
 	const element = document.querySelector(selector);
 	if (element === null) {
@@ -44,8 +45,10 @@ export function querySelector(selector: string): Element {
 
 	return element;
 }
+*/
 
 export function getClientRect(element: HTMLElement): completeRectType {
+	/* istanbul ignore if */
 	if (typeof element.getBoundingClientRect !== 'function') {
 		throw new Error('Unsupported browser: getBoundingClientRect is missing on element');
 	}
@@ -131,6 +134,7 @@ export function createElement(container: Node, tag: string, classes: string|Arra
 	return container.appendChild(element);
 }
 
+/*
 export function createAnchor(container: Node, text: string, cb: (event: MouseEvent) => void): void {
 	const anchorElement = document.createElement('a');
 	const anchorText = document.createTextNode(text);
@@ -143,3 +147,4 @@ export function createAnchor(container: Node, text: string, cb: (event: MouseEve
 		cb(event);
 	});
 }
+*/

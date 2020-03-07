@@ -1,4 +1,5 @@
 import {GanttChart} from '../index';
+//import {getElementByClassName} from '../dom/dom';
 
 describe('the class GanttChart', () => {
 	it('should render a gantt chart', () => {
@@ -26,9 +27,9 @@ describe('the class GanttChart', () => {
 
 		// let's test scrolling
 		/*
-		const scrollbarElements = document.getElementsByClassName('gc_timeline_scrollbar_cell');
-		expect(scrollbarElements).toHaveLength(1);
-		scrollbarElements[0].scrollTo(10, 10);
+		const scrollbarElement = getElementByClassName('gc_timeline_scrollbar_cell');
+		console.log('scrollbarElement', scrollbarElement, scrollbarElement.innerHTML);
+		scrollbarElement.scrollTo(10, 10);
 		*/
 	});
 });
