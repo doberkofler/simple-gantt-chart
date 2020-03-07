@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export const classNames = {
 	// root container
 	rootContainerView: 'gc_root_container_view',

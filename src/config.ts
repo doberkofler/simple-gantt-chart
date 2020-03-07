@@ -98,7 +98,7 @@ function getColumns(columns: Array<headerColumnType>): Array<headerColumnType> {
 		return Object.assign({}, column);
 	});
 
-	const requiredColumns = ['id', 'duration'];
+	const requiredColumns = ['text', 'days'];
 	requiredColumns.forEach(column => {
 		if (columnIds.indexOf(column) === -1) {
 			throw new TypeError(`The option "columns" does not contain the required column "${column}"`);
