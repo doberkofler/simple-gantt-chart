@@ -35,10 +35,6 @@ export class VectorDraw {
 	}
 
 	public addVector(direction: Direction, size: number): void {
-		if (this._lastPosition === null) {
-			throw new Error('No current position given');
-		}
-
 		let {x, y} = this._lastPosition;
 
 		switch (direction) {
@@ -59,17 +55,13 @@ export class VectorDraw {
 				break;
 
 			default:
-				break;
+				throw new TypeError(`Invalid direction "${direction}"`);
 		}
 
 		this.addLineToPoint({x, y});
 	}
 
 	public addLineToPoint(point: pointType): void {
-		if (this._lastPosition === null) {
-			throw new Error('No current position given');
-		}
-
 		const from = this._lastPosition;
 		const to = {...point};
 		const direction = VectorDraw._getDirection(from, to);

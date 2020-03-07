@@ -18,7 +18,7 @@ export function getTimelineScale(scale: ScaleType, cellWidth: number, startDate:
 		case 'day':
 			return getScaleDay(cellWidth, startDate, endDate);
 		default:
-			throw new TypeError(`Invalid scale "${scale}`);
+			throw new TypeError(`Invalid scale "${scale}"`);
 	}
 }
 

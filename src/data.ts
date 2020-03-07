@@ -24,18 +24,18 @@ export function setData(tasks: Array<taskType>, config: Config): void {
 			throw new TypeError('The property "id" must be a positive integer');
 		}
 		if (taskIds.indexOf(task.id) !== -1) {
-			throw new TypeError(`The property "id" in task ${task.id} is used more then once`);
+			throw new TypeError(`The task id "${task.id}" is used more then once`);
 		}
 		taskIds.push(task.id);
 
 		// text
 		if (typeof task.text !== 'string') {
-			throw new TypeError(`The property "text" in task ${task.id} must be a string`);
+			throw new TypeError(`The property "text" in task "${task.id}" must be a string`);
 		}
 
 		// startDate
 		if (!isValid(task.startDate)) {
-			throw new TypeError(`The property "startDate" in task ${task.id} must be a Date`);
+			throw new TypeError(`The property "startDate" in task "${task.id}" must be a Date`);
 		}
 
 		// days

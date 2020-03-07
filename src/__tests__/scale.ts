@@ -45,4 +45,13 @@ describe('scale', () => {
 
 		expect(() => getTimelineScale(ScaleType.day, 100, startDate, endDate)).toThrow('Invalid date range');
 	});
+
+	it('getTimelineScale with invalid type should throw an exception', () => {
+		expect.hasAssertions();
+
+		const startDate = new Date(2020, 0, 10); // 10-JAN-2020
+		const endDate = new Date(2020, 0, 11); // 11-JAN-2020
+
+		expect(() => getTimelineScale('month' as unknown as ScaleType, 100, startDate, endDate)).toThrow('Invalid scale "month"');
+	});
 });

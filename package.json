@@ -37,7 +37,7 @@
     "generate-types": "tsc --project ./tsconfig.declaration.json",
     "watch": "webpack --watch --progress --mode=development",
     "create-package": "npm run lint && npm run build && npm pack",
-    "test": "jest",
+    "test": "jest --coverage",
     "rebuild": "npm run lint && npm run build && npm test"
   },
   "main": "./dist/index.js",

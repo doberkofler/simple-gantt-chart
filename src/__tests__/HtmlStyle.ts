@@ -28,6 +28,14 @@ describe('the class HtmlStyle', () => {
 		expect(htmlStyle.toString()).toStrictEqual('color:red;');
 	});
 
+	it('should throw an error when constructor has duplicate styles', () => {
+		expect.hasAssertions();
+
+		expect(() => {
+			new HtmlStyle({'color': 'red', 'Color': 'blue'});
+		}).toThrow(new TypeError('Duplicate style "color"'));
+	});
+
 	it('should have have a method setComponent', () => {
 		expect.hasAssertions();
 

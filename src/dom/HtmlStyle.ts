@@ -21,7 +21,7 @@ export class HtmlStyle {
 			for (const e in styles) {
 				const name = e.toLocaleLowerCase();
 				if (this._styles.hasOwnProperty(name)) {
-					throw new TypeError(`Duplicate attribute "${name}"`);
+					throw new TypeError(`Duplicate style "${name}"`);
 				}
 				this._styles[name] = styles[e];
 			}

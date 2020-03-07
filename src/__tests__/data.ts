@@ -90,11 +90,14 @@ describe('data', () => {
 			{tasks: [{id: '1'}], error: 'The property "id" must be a positive integer'},
 			{tasks: [{id: 1.1}], error: 'The property "id" must be a positive integer'},
 			{tasks: [{id: 0}], error: 'The property "id" must be a positive integer'},
-			{tasks: [{id: 1}], error: 'The property "text" in task 1 must be a string'},
-			{tasks: [{id: 1, text: 'task'}], error: 'The property "startDate" in task 1 must be a Date'},
+			{tasks: [{id: 1}], error: 'The property "text" in task "1" must be a string'},
+			{tasks: [{id: 1, text: 'task'}], error: 'The property "startDate" in task "1" must be a Date'},
 			{tasks: [{id: 1, text: 'task', startDate: new Date()}], error: 'The property "days" must be a positive integer'},
 			{tasks: [{id: 1, text: 'task', startDate: new Date(), days: '0'}], error: 'The property "days" must be a positive integer'},
 			{tasks: [{id: 1, text: 'task', startDate: new Date(), days: 1.5}], error: 'The property "days" must be a positive integer'},
+			{tasks: [{id: 1, text: 'task', startDate: new Date(), days: 1}, {id: 1, text: 'task', startDate: new Date(), days: 1}], error: 'The task id "1" is used more then once'},
+			{tasks: [{id: 1, text: 'task', startDate: new Date(), days: 1, dependencies: [1, 1]}], error: 'The dependencies in the task with id "1" contain duplicates'},
+			{tasks: [{id: 1, text: 'task', startDate: new Date(), days: 1, dependencies: [2]}], error: 'The task with id "1" has an invalid dependency "2"'},
 		];
 
 		tests.forEach(test => {

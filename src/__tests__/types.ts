@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any, jest/valid-title */
 
-import {isObject, isFunction, isNumber, isInteger, isDate} from '../types';
+import {isObject, isFunction, isNumber, isInteger, isBoolean, isDate} from '../types';
 
 describe('types', () => {
 	const tests = [
@@ -291,7 +291,7 @@ describe('types', () => {
 		}
 	];
 
-	[isObject, isFunction, isNumber, isInteger, isDate].forEach(func => {
+	[isObject, isFunction, isNumber, isInteger, isBoolean, isDate].forEach(func => {
 		const funcName = func.name;
 		it(funcName, () => {
 			expect.hasAssertions();
