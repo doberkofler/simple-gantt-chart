@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+  - "10"
+  - "11"
+  - "12"
+  - "13"
+
+env:
+  global:
+    - NODE_ENV=test
+
+before_script:
+
+script:
+  - "npm run rebuild"
+
+install:
+  - npm install
+
+notifications:
+  email:
+    - dieter.oberkofler@gmail.com
