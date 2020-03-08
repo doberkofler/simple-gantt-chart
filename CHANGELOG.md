@@ -13,10 +13,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 
-## [0.0.2] - 2020-03-08
+## [0.0.3] - 2020-03-08
 
 ### Added
 - API documentation.
+
+
+## [0.0.2] - 2020-03-08
+
+### Added
 - Unit tests with a coverage of about 95%.
 
 
