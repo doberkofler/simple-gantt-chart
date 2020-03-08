@@ -46,6 +46,8 @@ describe('createElement', () => {
 	it('should create an element in the DOM', () => {
 		expect.hasAssertions();
 
+		createElement(document.body, 'div');
+
 		createElement(document.body, 'div', 'big', {color: 'red'}, 'text', {id: '1'});
 		expect(document.getElementById('1')).not.toBeNull();
 

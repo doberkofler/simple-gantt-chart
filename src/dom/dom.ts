@@ -98,14 +98,14 @@ export function addCustomEventListener(selector: string, event: string, handler:
  *
  *	@param {Node} container - The parent node.
  *	@param {string} tag - The tag name.
- *	@param {string|Array<string>} classes - The string in the class attribute.
+ *	@param {string|Array<string>} [classes=[]] - The string in the class attribute.
  *	@param {HtmlStyle|stylesType} [styles={}] - The styles in the style attribute.
  *	@param {string} [content] - The content of the div.
  *	@param {HtmlAttributes|attributesType} [attributes={}] - The optional attributes.
  *	@returns {HTMLElement} - The html markup.
  *	@example const element = createElement(document, 'div', 'cell', {width: 0}, 'hello world', {id: 'id'});
  */
-export function createElement(container: Node, tag: string, classes: string|Array<string>, styles: HtmlStyle|stylesType = {}, content = '', attributes: HtmlAttributes|attributesType = {}): HTMLElement {
+export function createElement(container: Node, tag: string, classes: string|Array<string> = [], styles: HtmlStyle|stylesType = {}, content = '', attributes: HtmlAttributes|attributesType = {}): HTMLElement {
 	const htmlAttributes = new HtmlAttributes(attributes);
 	const htmlStyle = new HtmlStyle(styles).toString();
 

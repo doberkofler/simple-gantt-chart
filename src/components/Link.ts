@@ -140,6 +140,7 @@ function getArrowMarkup(point: pointType, direction: Direction, lineHeight: numb
 			break;
 
 		default:
+			/* istanbul ignore next */
 			throw new Error(`Invalid direction "${direction}"`);
 	}
 
@@ -174,6 +175,7 @@ function getLineSize(vector: vectorType, lineWidth: number, containerWidth: numb
 			};
 
 		default:
+			/* istanbul ignore next */
 			throw new Error(`Invalid direction "${vector.direction}"`);
 	}
 }
@@ -219,6 +221,7 @@ function getLineContainerSize(vector: vectorType, cellHeight: number, wrapperWid
 			};
 
 		default:
+			/* istanbul ignore next */
 			throw new TypeError(`Invalid direction "${vector.direction}"`);
 	}
 }

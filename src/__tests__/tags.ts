@@ -11,6 +11,7 @@ describe('tags', () => {
 	it('getContainerOpen', () => {
 		expect.hasAssertions();
 
+		expect(getContainerOpen([])).toStrictEqual('<div>');
 		expect(getContainerOpen([], {})).toStrictEqual('<div>');
 		expect(getContainerOpen('big', {color: 'red', top: 0}, {id: 'content'})).toStrictEqual('<div id="content" class="big" style="color:red;top:0;">');
 		expect(getContainerOpen(['big', 'small'], {color: 'red', top: 0}, {id: 'content'})).toStrictEqual('<div id="content" class="big small" style="color:red;top:0;">');
@@ -26,6 +27,7 @@ describe('tags', () => {
 	it('getContainer', () => {
 		expect.hasAssertions();
 
+		expect(getContainer([])).toStrictEqual('<div></div>');
 		expect(getContainer(['big', 'small'], {color: 'red', top: 0}, 'text', {id: 'content'})).toStrictEqual('<div id="content" class="big small" style="color:red;top:0;">text</div>');
 	});
 });

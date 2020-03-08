@@ -1,7 +1,18 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-explicit-any */
+
 import {GanttChart} from '../index';
-//import {getElementByClassName} from '../dom/dom';
+import {getElementByClassName} from '../dom/dom';
 
 describe('the class GanttChart', () => {
+	beforeEach(() => {
+		//@ts-ignore
+		jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb());
+	});
+
+	afterEach(() => {
+		(window.requestAnimationFrame as any).mockRestore();
+	});
+
 	it('should render a gantt chart', () => {
 		expect.hasAssertions();
 
@@ -26,10 +37,8 @@ describe('the class GanttChart', () => {
 		expect(container.innerHTML).toMatch(/^<div id=".*" class="gc_root_container_view".*>.*<\/div>$/);
 
 		// let's test scrolling
-		/*
 		const scrollbarElement = getElementByClassName('gc_timeline_scrollbar_cell');
-		console.log('scrollbarElement', scrollbarElement, scrollbarElement.innerHTML);
-		scrollbarElement.scrollTo(10, 10);
-		*/
+		scrollbarElement.scrollLeft = 10;
+		scrollbarElement.dispatchEvent(new Event('scroll'));
 	});
 });

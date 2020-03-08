@@ -78,6 +78,7 @@ export class TimelineScrollbar {
 }
 
 function getScrollLeft(event: Event): number|null {
+	/* istanbul ignore if */
 	if (event === null || event.target === null) {
 		return null;
 	} else {

@@ -34,7 +34,7 @@ export class HtmlStyle {
 	 *	@param {stylesType} styles - A object where each property represents a style component.
 	 *	@example style.merge({'color': black, 'background-color': 'white'});
 	 */
-	public merge(styles: stylesType = {}): void {
+	public merge(styles: stylesType): void {
 		for (const e in styles) {
 			const name = e.toLocaleLowerCase();
 			this._styles[name] = styles[e];
