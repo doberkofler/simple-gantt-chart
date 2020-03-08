@@ -1,6 +1,6 @@
 {
   "name": "simple-gantt-chart",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Dieter Oberkofler <dieter.oberkofler@gmail.com>",
   "license": "MIT",
   "description": "Very simple vanilla JavaScript library for displaying projects as Gantt Charts.",
