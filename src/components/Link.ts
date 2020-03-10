@@ -126,14 +126,17 @@ function getArrowMarkup(point: pointType, direction: Direction, lineHeight: numb
 			left -= arrowSize;
 			break;
 
+		/* istanbul ignore next */
 		case Direction.left:
 			top -= (arrowSize - lineHeight) / 2;
 			break;
 
+		/* istanbul ignore next */
 		case Direction.up:
 			left -= arrowSize;
 			break;
 
+		/* istanbul ignore next */
 		case Direction.down:
 			top += arrowSize * 2;
 			left -= arrowSize;
@@ -202,6 +205,7 @@ function getLineContainerSize(vector: vectorType, cellHeight: number, wrapperWid
 				width: vector.size + wrapperWidth
 			};
 
+		/* istanbul ignore next */
 		case Direction.up:
 			return {
 				top: y - vector.size,

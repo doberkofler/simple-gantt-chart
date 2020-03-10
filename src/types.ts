@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/strict-boolean-expressions */
-
 /**
  * Is the given value a plain "object" (not null or a function)
  *
  * @param {*} value - The value to be checked
  * @returns {boolean} returns true if the value matches the type
  */
-export function isObject(value: any): boolean {
+export function isObject(value: unknown): boolean {
 	const type = typeof value;
 	return value !== null && (type === 'object' || type === 'function');
 }
@@ -17,8 +15,8 @@ export function isObject(value: any): boolean {
  * @param {*} value - The value to be checked
  * @returns {boolean} returns true if the value matches the type
  */
-export function isFunction(value: any): value is Function {
-	return !!(value && value.constructor && value.call && value.apply); // eslint-disable-line no-implicit-coercion
+export function isFunction(value: unknown): value is Function {
+	return value instanceof Function;
 }
 
 /**
@@ -27,7 +25,7 @@ export function isFunction(value: any): value is Function {
  * @param {*} value - The value to be checked
  * @returns {boolean} returns true if the value matches the type
  */
-export function isNumber(value: any): value is number {
+export function isNumber(value: unknown): value is number {
 	return typeof value === 'number' && !Number.isNaN(value) && Number.isFinite(value);
 }
 
@@ -37,7 +35,7 @@ export function isNumber(value: any): value is number {
  * @param {*} value - The value to be checked
  * @returns {boolean} returns true if the value matches the type
 */
-export function isInteger(value: any): value is number {
+export function isInteger(value: unknown): value is number {
 	return isNumber(value) && value % 1 === 0;
 }
 
@@ -47,7 +45,7 @@ export function isInteger(value: any): value is number {
  * @param {*} value - The value to be checked
  * @returns {boolean} returns true if the value matches the type
  */
-export function isBoolean(value: any): value is boolean {
+export function isBoolean(value: unknown): value is boolean {
 	return value === true || value === false || toString.call(value) === '[object Boolean]';
 }
 
@@ -57,6 +55,6 @@ export function isBoolean(value: any): value is boolean {
  * @param {*} value - The value to be checked
  * @returns {boolean} returns true if the value matches the type
  */
-export function isDate(value: any): value is Date {
+export function isDate(value: unknown): value is Date {
 	return toString.call(value) === '[object Date]';
 }

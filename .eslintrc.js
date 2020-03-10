@@ -410,8 +410,11 @@ module.exports = {
 		'@typescript-eslint/no-unnecessary-condition': ['warn', {ignoreRhs: true}],
 		'@typescript-eslint/no-unnecessary-qualifier': 'warn',
 		'@typescript-eslint/no-unnecessary-type-assertion': 'warn',
-		'@typescript-eslint/no-useless-constructor': 'warn',
+		'@typescript-eslint/no-unsafe-call': 'warn',
+		'@typescript-eslint/no-unsafe-member-access': 'warn',
+		'@typescript-eslint/no-unsafe-return': 'warn',
 		'@typescript-eslint/no-untyped-public-signature': 'warn',
+		'@typescript-eslint/no-useless-constructor': 'warn',
 		'@typescript-eslint/no-require-imports': 'warn',
 		'@typescript-eslint/no-this-alias': [
 			'warn',

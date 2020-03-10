@@ -8,7 +8,8 @@
 .vscode/
 appveyor.yml
 coverage/
-examples/
+examples/**/dist/
+examples/**/node_modules/
 jest.config.js
 node_modules/
 package-lock.json
@@ -16,8 +17,4 @@ src/
 stylelint.config.js
 temp/
 test/
-tsconfig_base.json
-tsconfig.declaration.json
-tsconfig.json
 types/
-webpack.config.js

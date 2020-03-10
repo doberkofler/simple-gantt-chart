@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import {GanttChart} from '../index';
 import {getElementByClassName} from '../dom/dom';
@@ -10,7 +10,7 @@ describe('the class GanttChart', () => {
 	});
 
 	afterEach(() => {
-		(window.requestAnimationFrame as any).mockRestore();
+		(window.requestAnimationFrame as any).mockRestore(); // eslint-disable-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 	});
 
 	it('should render a gantt chart', () => {
