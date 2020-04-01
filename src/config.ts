@@ -2,9 +2,8 @@ import {v4 as uuid} from 'uuid';
 import startOfMonth from 'date-fns/startOfMonth';
 import endOfMonth from 'date-fns/endOfMonth';
 import {getDateWitoutTime} from './date';
-import {getElementByIdAndClass} from './dom/dom';
 import {ScaleType} from './scale';
-import {headerColumnType, optionsType} from './index';
+import {headerColumnType, optionsType, callbackTaskClickType} from './index';
 import {internalTaskType, linkType} from './internalTypes';
 
 export class Config {
@@ -18,6 +17,8 @@ export class Config {
 	public scaleEnd: Date;
 	public tasks: Array<internalTaskType>;
 	public links: Array<linkType>;
+	public callbackTaskClick: callbackTaskClickType | null;
+	public callbackTaskDblClick: callbackTaskClickType | null;
 
 	public constructor() {
 		const now = new Date();
@@ -32,6 +33,8 @@ export class Config {
 		this.lineHeight = 34;
 		this.tasks = [];
 		this.links = [];
+		this.callbackTaskClick = null;
+		this.callbackTaskDblClick = null;
 	}
 
 	public setConfig(options: optionsType): void {
@@ -50,8 +53,26 @@ export class Config {
 		}
 	}
 
+	public getRootElement(): Element {
+		const root = document.getElementById(this.id);
+		if (root === null) {
+			throw new Error(`The element with id "${this.id}" cannot be found`);
+		}
+
+		return root;
+	}
+
 	public getElementByClassName(className: string): Element {
-		return getElementByIdAndClass(this.id, className);
+		const element = this.getRootElement().querySelector(`.${className}`);
+		if (element === null) {
+			throw new Error(`The selector ".${className}" cannot be found`);
+		}
+
+		return element;
+	}
+
+	public getElementsByClassName(className: string): NodeListOf<Element> {
+		return this.getRootElement().querySelectorAll(`.${className}`);
 	}
 
 	/*

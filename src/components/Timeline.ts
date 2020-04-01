@@ -1,4 +1,5 @@
 import differenceInCalendarDays from 'date-fns/differenceInCalendarDays';
+import {callbackTaskClickType} from '../index';
 import {Config} from '../config';
 import {classNames} from '../classNames';
 import {getContainer} from '../dom/tags';
@@ -55,6 +56,57 @@ export class Timeline {
 			'overflow-x': 'hidden',
 			'overflow-y': 'hidden'
 		}, gridLayer + taskLayer + linkLayer);
+	}
+
+	/*
+	*	Attach event handler for the tasks and links
+	*/
+	public attach(): void {
+		// get the parent of all task views
+		const parentView = this._config.getElementByClassName(classNames.timelineTableView);
+
+		parentView.addEventListener('click', event => this._onTaskEventHandler(event), false);
+		parentView.addEventListener('dblclick', event => this._onTaskEventHandler(event), false);
+	}
+
+	/*
+	*	Attach event handler for the tasks and links
+	*/
+	private _onTaskEventHandler(event: Event): void {
+		let callback: callbackTaskClickType|null = null;
+		switch (event.type) {
+			case 'click':
+				callback = this._config.callbackTaskClick;
+				break;
+
+			case 'dblclick':
+				callback = this._config.callbackTaskDblClick;
+				break;
+
+			default:
+				throw new Error(`Invalid event type "${event.type}"`);
+		}
+
+		if (callback === null) {
+			return;
+		}
+
+		const target = event.target as HTMLElement;
+		if (target.matches(`.${classNames.timelineTableTask}`)) {
+			const taskIdString = target.getAttribute('data-taskid');
+			if (taskIdString === null) {
+				throw new TypeError('Attribute "data-taskid" not found');
+			}
+
+			const taskID = parseInt(taskIdString, 10);
+
+			const task = this._config.tasks.find(e => e.id === taskID);
+			if (typeof task === 'undefined') {
+				throw new TypeError(`Task with id "${taskID}" not found`);
+			}
+
+			callback(task);
+		}
 	}
 }
 
@@ -154,6 +206,7 @@ function getTableTask(task: computedTaskType): string {
 		'left': `${task.left}px`,
 		'height': `${task.height}px`,
 		'width': `${task.width}px`,
+		'z-index': 10,
 	}, task.task.text, {
 		'data-taskid': task.task.id.toString(),
 		'data-date': task.task.startDate.getTime().toString(),

@@ -1,4 +1,4 @@
-import {GanttChart} from 'simple-gantt-chart';
+import {GanttChart, taskType} from 'simple-gantt-chart';
 
 const gantt = new GanttChart();
 gantt.setData([
@@ -9,4 +9,5 @@ gantt.setData([
 	{id: 5, text: 'Testing', startDate: new Date('2020-01-07'), days: 2, dependencies: [3]},
 	{id: 6, text: 'Deployment', startDate: new Date('2020-01-10'), days: 2, dependencies: [4, 5]},
 ]);
+gantt.attachTaskClickEvent('click', (task: taskType) => alert(`clicked on task ${task.id}`));
 gantt.render(document.getElementById('gantt_here'));

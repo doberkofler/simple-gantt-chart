@@ -81,6 +81,9 @@ export function render(container: Readonly<HTMLElement>, config: Readonly<Config
 		id: config.id,
 	});
 
-	// attach event handler
+	// attach scrollbar event handler
 	timelineScrollbar.attach();
+
+	// attach click event handler
+	timeline.attach();
 }

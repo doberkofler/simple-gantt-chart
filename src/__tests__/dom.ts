@@ -1,4 +1,4 @@
-import {getElementByClassName, getElementByIdAndClass, getClientRect, createElement} from '../dom/dom';
+import {getElementByClassName, getClientRect, createElement} from '../dom/dom';
 
 describe('getElementByClassName', () => {
 	it('should find an element by class name', () => {
@@ -8,18 +8,6 @@ describe('getElementByClassName', () => {
 		expect(getElementByClassName('big').innerHTML).toStrictEqual('text');
 
 		expect(() => getElementByClassName('small')).toThrow('The selector "small" returns 0 instead of 1 element');
-	});
-});
-
-describe('getElementByIdAndClass', () => {
-	it('should find an element by id and then class name', () => {
-		expect.hasAssertions();
-
-		document.body.innerHTML = '<div id="1"><div class="big">text</div></div>';
-		expect(getElementByIdAndClass('1', 'big').innerHTML).toStrictEqual('text');
-
-		expect(() => getElementByIdAndClass('nope', 'big')).toThrow('The root element with id "nope" cannot be found');
-		expect(() => getElementByIdAndClass('1', 'small')).toThrow('The selector "small" cannot be found in the id "1"');
 	});
 });
 

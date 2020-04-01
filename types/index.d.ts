@@ -43,6 +43,11 @@ export declare type optionsType = {
 };
 
 /**
+*	Task click callback.
+*/
+export type callbackTaskClickType = (task: taskType) => void;
+
+/**
 * Gantt Chart.
 */
 export declare class GanttChart {
@@ -77,6 +82,20 @@ export declare class GanttChart {
 	*/
 	
 	setData(tasks: Array<taskType>): void;
+
+	/**
+	*	Attach a callback event when a task has been clicked.
+	*
+	*	@param {'click'|'dblclick'} event - The click event to wait for.
+	*	@param {callbackTaskClickType} callback - The callback function when a task receives a click event.
+	*
+	*	@example
+	*
+	*	gantt.attachTaskClickEvent('click', (task: taskType) => alert(`clicked on task ${task.id}`));
+	*
+	*/
+	attachTaskClickEvent(event: 'click'|'dblclick', callback: callbackTaskClickType): void;
+
 	/**
 	*	Render the gantt chart in a given element.
 	*

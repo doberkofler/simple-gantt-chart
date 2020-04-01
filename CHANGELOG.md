@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 
+## [0.0.5] - 2020-04-01
+
+### Added
+- Added method `attachTaskClickEvent` to attach an event callback when a task is clicked.
+
+
 ## [0.0.4] - 2020-03-10
 
 ### Changed

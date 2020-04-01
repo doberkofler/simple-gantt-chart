@@ -47,6 +47,11 @@ export type optionsType = {
 };
 
 /**
+*	Task click callback.
+*/
+export type callbackTaskClickType = (task: taskType) => void;
+
+/**
 * Gantt Chart.
 */
 export class GanttChart {
@@ -87,6 +92,32 @@ export class GanttChart {
 	*/
 	public setData(tasks: Array<taskType>): void {
 		setData(tasks, this.#config);
+	}
+
+	/**
+	*	Attach a callback event when a task has been clicked.
+	*
+	*	@param {'click'|'dblclick'} event - The click event to wait for.
+	*	@param {callbackTaskClickType} callback - The callback function when a task receives a click event.
+	*
+	*	@example
+	*
+	*	gantt.attachTaskClickEvent('click', (task: taskType) => alert(`clicked on task ${task.id}`));
+	*
+	*/
+	public attachTaskClickEvent(event: 'click'|'dblclick', callback: callbackTaskClickType): void {
+		switch (event) {
+			case 'click':
+				this.#config.callbackTaskClick = callback;
+				break;
+
+			case 'dblclick':
+				this.#config.callbackTaskDblClick = callback;
+				break;
+
+			default:
+				throw new TypeError('The event type must be "click" or "dblclick"');
+		}
 	}
 
 	/**

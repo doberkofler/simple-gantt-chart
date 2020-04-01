@@ -19,34 +19,6 @@ export function getElementByClassName(classNames: string): Element {
 	return elements[0];
 }
 
-/*
-*	Return the element specified by id and class
-*/
-export function getElementByIdAndClass(id: string, className: string): Element {
-	const rootElement = document.getElementById(id);
-	if (rootElement === null) {
-		throw new Error(`The root element with id "${id}" cannot be found`);
-	}
-
-	const element = rootElement.querySelector(`.${className}`);
-	if (element === null) {
-		throw new Error(`The selector "${className}" cannot be found in the id "${id}"`);
-	}
-
-	return element;
-}
-
-/*
-export function querySelector(selector: string): Element {
-	const element = document.querySelector(selector);
-	if (element === null) {
-		throw new Error(`The selector "${selector}" does not exist`);
-	}
-
-	return element;
-}
-*/
-
 export function getClientRect(element: HTMLElement): completeRectType {
 	/* istanbul ignore if */
 	if (typeof element.getBoundingClientRect !== 'function') {
