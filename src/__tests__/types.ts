@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any, jest/valid-title */
+/* eslint-disable jest/valid-title */
 
 import {isObject, isFunction, isNumber, isInteger, isBoolean, isDate} from '../types';
 
@@ -300,7 +300,7 @@ describe('types', () => {
 				if (!(property in test)) {
 					throw new Error(`Missing property "${property}" in test "${test.title}"`);
 				}
-				expect(func(test.value)).toStrictEqual((test as {[key: string]: any})[property]);
+				expect(func(test.value)).toStrictEqual((test as {[key: string]: unknown})[property]);
 			});
 		});
 	});
