@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "author": "Dieter Oberkofler <dieter.oberkofler@gmail.com>",
   "license": "MIT",
-  "description": "Very simple vanilla JavaScript library for displaying projects as Gantt Charts.",
+  "description": "DEPRECATED — please use gantt-renderer instead. Very simple vanilla JavaScript library for displaying projects as Gantt Charts.",
   "keywords": [
     "simple-gantt-chart",
     "gantt chart",

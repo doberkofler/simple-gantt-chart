@@ -1,3 +1,12 @@
+# DEPRECATED
+
+**This package is no longer maintained. Please use [gantt-renderer](https://github.com/doberkofler/gantt-renderer) instead.**
+
+- Repository: https://github.com/doberkofler/gantt-renderer
+- npm: https://www.npmjs.com/package/gantt-renderer
+
+---
+
 [![NPM version](https://img.shields.io/npm/v/simple-gantt-chart.svg)](https://www.npmjs.com/package/simple-gantt-chart)
 [![Downloads](https://img.shields.io/npm/dm/simple-gantt-chart.svg)](https://www.npmjs.com/package/simple-gantt-chart)
 [![Linux Build](https://travis-ci.org/doberkofler/simple-gantt-chart.svg?branch=master)](https://travis-ci.org/doberkofler/simple-gantt-chart)
